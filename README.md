@@ -1,4 +1,3 @@
-/*********************************************************************/
 This repository is meant to be used for the third nextD extraction round.
 
 Description of Next-D project and all relevant details on data extraction beyond sql codes and this README file could be found at:
@@ -7,7 +6,12 @@ https://www.dropbox.com/home/diabetes%20project%20(working%20docs)/Definitions_S
 https://www.dropbox.com/home/diabetes%20project%20(working%20docs)/Definitions_StudySamples%26Variables?preview=Definitions_Appendix_A-2018-11-27-af.docx
 https://www.dropbox.com/home/diabetes%20project%20(working%20docs)/Definitions_StudySamples%26Variables?preview=Definitions_Apendix_B-2018-12-14-AF.docx
 
-/*********************************************************************/
+The codes listed here are sql analogues of oracle version available here:https://github.com/afurmanchuk/NextD
+
+
+
+
+
 Below we provide steps for the third data extraction for NEXT_D project. One also might want to review more user-friendly description of NEXTD data dictionary available in docx files .
 
 Extraction steps
@@ -17,6 +21,9 @@ Extraction steps
 •	In line 1185 specify database name with [CAP_DEMOGRAPHICS] table
 2.	Collect PATID for patients in table #FinalStatTable1. Use old provided by MRAIA study global id (GLOBALID) and store it into crosswalk table #GlobalIDtable that will be used in all further tables. Produce table #Final_Table1. This table will used in all other codes.
 3.	Run all other extraction codes in any order.
+
+
+
 
 NextD_ExtractionCode_DEMOGRAPHICS_CAPRICORN_2019_01_08.sql
 •	In line 10 specify PCORI database name
