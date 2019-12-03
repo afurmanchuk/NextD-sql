@@ -1,6 +1,14 @@
-# NextD-sql
-Sql version of scripts
-Below we provide steps for the second data extraction for NEXT_D project. One also might want to review more user-friendly description of NEXTD data dictionary available in docx files .
+/*********************************************************************/
+This repository is meant to be used for the third nextD extraction round.
+
+Description of Next-D project and all relevant details on data extraction beyond sql codes and this README file could be found at:
+https://www.dropbox.com/home/diabetes%20project%20(working%20docs)/Definitions_StudySamples%26Variables?preview=Definitions_Part1_CAPRICORNversion-2019-11-13-AF.docx
+https://www.dropbox.com/home/diabetes%20project%20(working%20docs)/Definitions_StudySamples%26Variables?preview=Definitions_Part2-2019-11-13-AF.docx
+https://www.dropbox.com/home/diabetes%20project%20(working%20docs)/Definitions_StudySamples%26Variables?preview=Definitions_Appendix_A-2018-11-27-af.docx
+https://www.dropbox.com/home/diabetes%20project%20(working%20docs)/Definitions_StudySamples%26Variables?preview=Definitions_Apendix_B-2018-12-14-AF.docx
+
+/*********************************************************************/
+Below we provide steps for the third data extraction for NEXT_D project. One also might want to review more user-friendly description of NEXTD data dictionary available in docx files .
 
 Extraction steps
 
