@@ -1,80 +1,166 @@
-This repository is meant to be used for the third nextD extraction round.
+/*********************************************************************/
+Execution plan:
+1. Run SQLTable1_CAPRICORNsites-2021-03-02_AF.sql. 
+    It will produce FinalTable 1 with relevant patient’s IDs that will be utilized in other provided codes.
 
-Description of Next-D project and all relevant details on data extraction beyond sql codes and this README file could be found at:
-https://www.dropbox.com/home/diabetes%20project%20(working%20docs)/Definitions_StudySamples%26Variables?preview=Definitions_Part1_CAPRICORNversion-2019-11-13-AF.docx
-https://www.dropbox.com/home/diabetes%20project%20(working%20docs)/Definitions_StudySamples%26Variables?preview=Definitions_Part2-2019-11-13-AF.docx
-https://www.dropbox.com/home/diabetes%20project%20(working%20docs)/Definitions_StudySamples%26Variables?preview=Definitions_Appendix_A-2018-11-27-af.docx
-https://www.dropbox.com/home/diabetes%20project%20(working%20docs)/Definitions_StudySamples%26Variables?preview=Definitions_Apendix_B-2018-12-14-AF.docx
+2. The remaining 12 codes could be run in any order after the FinalTable1 is generated.
+    Codes for producing NextD_PROVIDER will need extra mapping with provided along with this set files NPI2ToxonomycodeCorssWalk_2018-01-01_AF.zip 
 
-The codes listed here are sql analogues of oracle version available here:https://github.com/afurmanchuk/NextD
+3. Save each output table as a separate pipeline delimited file. Use “ALONAENDALONA” as line terminator. 
+    Produced files should then be archived
+/*********************************************************************/
+/*********************************************************************/
+Study period: 2010-01-01 - 2020-12-31 
+CDM version: >= v6.1, without date shifts
+/*********************************************************************/
 
+Script name: SQLTable1_2021-02-03.sql
+Execution order: 1
+Tables required: 
++PCORNET_CDM.DEMOGRAPHIC
++PCORNET_CDM.ENCOUNTER
 
+Table produced:
++FinalTable1;
 
+/*********************************************************************/
 
+Script name: NextD_ExtractionCode_DEMOGRAPHICS-2021-02-03.sql
+Execution order: 2.*
+Tables required: 
++FinalsTable1
++PCORNET_CDM.DEMOGRAPHIC
 
-Below we provide steps for the third data extraction for NEXT_D project. One also might want to review more user-friendly description of NEXTD data dictionary available in docx files .
+Table produced:
++NextD_DEMOGRAPHIC_FINAL
 
-Extraction steps
+/*********************************************************************/
 
-1.	Run SQLTable1_CAPRICORNsites-CCHHS reviewed_2019-01-08_AF.sql
-•	In line 15 specify PCORI database name
-•	In line 1185 specify database name with [CAP_DEMOGRAPHICS] table
-2.	Collect PATID for patients in table #FinalStatTable1. Use old provided by MRAIA study global id (GLOBALID) and store it into crosswalk table #GlobalIDtable that will be used in all further tables. Produce table #Final_Table1. This table will used in all other codes.
-3.	Run all other extraction codes in any order.
+Script name: NextD_ExtractionCode_ENCOUNTER-2021-02-03.sql
+Execution order: 2.*
+Tables required: 
++FinalTable1
++PCORNET_CDM.ENCOUNTER
++NEXT_OriginalNPIFROMBaseTaxonomy
 
+Table produced:
++NextD_ENCOUNTER_FINAL
 
+/*********************************************************************/
 
+Script name: NextD_ExtractionCode_PRESCRIBING-2021-02-03.sql
+Execution order: 2.*
+Tables required: 
++FinalTable1
++PCORNET_CDM.DEMOGRAPHIC
++PCORNET_CDM.PRESCRIBING
++PCORNET_CDM.ENCOUNTER
 
-NextD_ExtractionCode_DEMOGRAPHICS_CAPRICORN_2019_01_08.sql
-•	In line 10 specify PCORI database name
-•	Collect MaritalStatus variable from source system into #MaritalStatusTable table. Change line 19 to ‘NULL’ as MaritalStatus in case your site does not populate this in the source system. Line 23 should be commented out in this case.
+Table produced:
++NextD_PRESCRIBING_FINAL
 
-NextD_ExtractionCode_DEATHCAUSES_CAPRICORN_2019_01_08.sql
-•	In line 11 specify PCORI database name
+/*********************************************************************/
 
-NextD_ExtractionCode_DIAGNOSES_CAPRICORN_2019_01_08.sql
-•	In line 12 specify PCORI database name
+Script name: NextD_ExtractionCode_DISPENSING-2021-02-03.sql
+Execution order: 2.*
+Tables required: 
++FinalTable1
++PCORNET_CDM.DISPENSING
++PCORNET_CDM.DEMOGRAPHIC
 
-NextD_ExtractionCode_DISPENSING_CAPRICORN_2019_01_08.sql
-•	In line 11 specify PCORI database name
+Table produced:
++NextD_DISPENSING_FINAL
 
-NextD_ExtractionCode_LABS_CAPRICORN_2019_01_08.sql
-•	In line 12 specify PCORI database name
+/*********************************************************************/
 
-NextD_ExtractionCode_ENCOUNTERS_CAPRICORN_2019_01_08.sql
-•	In line 11 specify PCORI database name
+Script name: NextD_ExtractionCode_VITAL-2021-02-03.sql
+Execution order: 2.*
+Tables required: 
++FinalTable1
++PCORNET_CDM.DEMOGRAPHIC
++PCORNET_CDM.VITAL
 
-NextD_ExtractionCode_PRESCRIBING_CAPRICORN_2019_01_08.sql
-•	In line 10 specify PCORI database name
+Table produced:
++NextD_VITAL_FINAL
 
-NextD_ExtractionCode_PROCEDURES_CAPRICORN_2019_01_08.sql
-•	In line 12 specify PCORI database name
+/*********************************************************************/
 
-NextD_ExtractionCode_VITALS_CAPRICORN_2019_01_08.sql
-•	In line 10 specify PCORI database name
+Script name: NextD_ExtractionCode_LABS_GPCsites-2021-02-03.sql
+Execution order: 2.*
+Tables required: 
++FinalTable1
++PCORNET_CDM.DEMOGRAPHIC
++PCORNET_CDM.LAB_RESULT_CM
 
-NextD_ExtractionCode_PROVIDERS_CAPRICORN_2019_01_08.sql
-•	In line 12 specify PCORI database name
-•	Convert NPI2ToxonomycodeCorssWalk_2018-01-01_AF.zip into #NEXTD_NPI_Remap
+Table produced:
++NextD_LABS_FINAL
 
-NextD_ExtractionCode_SES_CAPRICORN_2019_01_08.sql
-•	In line 44 specify PCORI database name
-•	Collect geocoding details and patient addresses from the source system. Convert those to #SES table.
-•	Convert nhgis0561_20155_2015_tract_final_label_csv_2017-7-24-AF.zip file into #SESvariablestable.
+/*********************************************************************/
 
-NextD_Epic_InsuranceCoveragePerPatient_pro-ENROLLMENTtable-2019-11-26-SX.sql
-•	Follow logic provided here:
-https://github.com/afurmanchuk/NextD/blob/master/NextD_Epic_InsuranceCoveragePerPatient_pro-ENROLLMENTtable-2019-11-26-SX.sql
+Script name: NextD_ExtractionCode_DIAGNOSIS-2021-02-03.sql
+Execution order: 2.*
+Tables required: 
++FinalTable1
++PCORNET_CDM.DEMOGRAPHIC
++PCORNET_CDM.DIAGNOSIS
 
-NextD_IDX_InsuranceCoveragePerPatient_pro-ENROLLMENTtable-2019-11-26-SX.sql 
-•	Follow logic provided here:
-https://github.com/afurmanchuk/NextD/blob/master/NextD_IDX_InsuranceCoveragePerPatient_pro-ENROLLMENTtable-2019-11-26-SX.sql
+Table produced:
++NextD_DIAGNOSIS_FINAL
 
-NextD_ExtractionCode_DISTANCES_CAPRICORN_2019_11_12.sql
-•	Comment out lines 60-69
-•	In line 56 provide name of side table with Facility addresses.
-•	Save final table #NextD_DISTANCES_FINAL as pipe-delimited file
+/*********************************************************************/
 
-4.	Each code in step 3 will produce single table. Save #Final_Table1 (produced in step 2) and other tables (produced in step 3) as pipe-delimited files with row “ENDALONAEND” as row terminator. Load them to  
-R:\IPHAM\Projects\ArcGis\NextDflatFileTempLocation\<NameOfYourSite>Duat
+Script name: NextD_ExtractionCode_PROCEDURES-2021-02-03.sql
+Execution order: 2.*
+Tables required: 
++FinalTable1
++PCORNET_CDM.DEMOGRAPHIC
++PCORNET_CDM.PROCEDURES;
 
+Table produced:
++NextD_PROCEDURES_FINAL
+
+/*********************************************************************/
+
+Script name: NextD_ExtractionCode_PROVIDER-2021-02-03.sql
+Execution order: 2.*
+Tables required: 
++NEXT_OriginalNPIFROMBaseTaxonomy
++PCORNET_CDM.PROVIDER
+
+Table produced:
++NextD_PROVIDER_FINAL
+
+/*********************************************************************/
+
+Script name: NextD_ExtractionCode_SES_2021-02-03.sql
+Execution order: 2.*
+Tables required: 
++FinalTable1
++Local table with information on geocoding accuracy, and GEOIIDs
+
+Table produced:
++NextD_SES_FINAL
+
+/*********************************************************************/
+
+Script name: NextD_ExtractionCode_DEATH_2021-02-03.sql
+Execution order: 2.*
+Tables required: 
++FinalTable1
+++PCORNET_CDM.DEATH
+
+Table produced:
++NextD_DEATH_FINAL
+
+/*********************************************************************/
+
+Script name: NextD_ExtractionCode_DEATH_2021-02-03.sql
+Execution order: 2.*
+Tables required: 
++FinalTable1
+++PCORNET_CDM.DEATH_CAUSE
+
+Table produced:
++NextD_DEATH_CAUSE_FINAL
+
+/*********************************************************************/
