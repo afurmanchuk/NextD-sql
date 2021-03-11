@@ -8,8 +8,10 @@ Execution plan:
 
 3. Save each output table as a separate pipeline delimited file. Use “ALONAENDALONA” as line terminator. 
     Produced files should then be archived
+    
 /*********************************************************************/
 /*********************************************************************/
+
 Study period: 2010-01-01 - 2020-12-31 
 CDM version: >= v6.1, without date shifts
 /*********************************************************************/
