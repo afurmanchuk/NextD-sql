@@ -9,12 +9,12 @@
 3. Tabel with mapping (named here #GlobalIDtable) between PCORNET IDs and Global patient IDs provided by MRAIA. */
 ---------------------------------------------------------------------------------------------------------------
 use capricorn;/*specify PCOR database here*/
-select c.PATID,
-		b.DEATH_CAUSE, 
-		b.DEATH_CAUSE_CODE,
-		b.DEATH_CAUSE_TYPE,
-		b.DEATH_CAUSE_SOURCE,
-		b.DEATH_CAUSE_CONFIDENCE 
+select c.PATID,'|' as PIPE1,
+	b.DEATH_CAUSE, '|' as PIPE2,
+	b.DEATH_CAUSE_CODE,'|' as PIPE3,
+	b.DEATH_CAUSE_TYPE,'|' as PIPE4,
+	b.DEATH_CAUSE_SOURCE,'|' as PIPE5,
+	b.DEATH_CAUSE_CONFIDENCE, 'ENDALONAEND' as lineEND 
 into #NextD_DEATH_CAUSE
 from /* provide name of table 1 here: */ #Final_Table1 c 
 left join /* provide name of PCORNET table DEATH_CAUSE here: */ [dbo].[DEATH_CAUSE] b on c.PATID=b.PATID;
