@@ -1,6 +1,6 @@
 /*********************************************************************/
 Execution plan:
-1. Run SQLTable1_CAPRICORNsites-2021-03-02_AF.sql. 
+1. Run FinalTable1_2021-03-02.sql 
     It will produce FinalTable 1 with relevant patient’s IDs that will be utilized in other provided codes.
 
 2. The remaining 12 codes could be run in any order after the FinalTable1 is generated.
@@ -14,7 +14,7 @@ Study period: 2010-01-01 - 2020-12-31
 CDM version: >= v6.1, without date shifts
 /*********************************************************************/
 
-Script name: SQLTable1_2021-02-03.sql
+Script name: FinalTable1_2021-02-03.sql
 Execution order: 1
 Tables required: 
 +PCORNET_CDM.DEMOGRAPHIC
