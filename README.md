@@ -1,5 +1,5 @@
-/*********************************************************************/
 Execution plan:
+
 1. Run FinalTable1_2021-03-02.sql 
     It will produce FinalTable 1 with relevant patient’s IDs that will be utilized in other provided codes.
 
