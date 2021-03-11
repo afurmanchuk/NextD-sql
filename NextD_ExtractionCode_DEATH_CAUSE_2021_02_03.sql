@@ -25,7 +25,3 @@ into #NextD_DEATH_CAUSE_FINAL
 from #NextD_DEATH_CAUSE i join  /* provide name the table containing c.PATID,Hashes, and Global patient id*/ #GlobalIDtable d 
 on i.PATID=d.PATID;
 ---------------------------------------------------------------------------------------------------------------
-/* Save #NextD_DEATH_CAUSE_FINAL as csv file. 
-Use "|" symbol as field terminator and 
-"ENDALONAEND" as row terminator. */ 
----------------------------------------------------------------------------------------------------------------
