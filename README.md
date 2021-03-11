@@ -17,114 +17,114 @@ CDM version: >= v6.1
 Script name: FinalTable1_2021-02-03.sql
 Execution order: 1
 Tables required: 
-+PCORNET_CDM.DEMOGRAPHIC
-+PCORNET_CDM.ENCOUNTER
+PCORNET_CDM.DEMOGRAPHIC;
+PCORNET_CDM.ENCOUNTER
 
 Table produced:
-+FinalTable1;
+FinalTable1
 
 ----------------------------------------------------------------------
 
 Script name: NextD_ExtractionCode_DEMOGRAPHICS-2021-02-03.sql
 Execution order: 2.*
 Tables required: 
-+FinalsTable1
-+PCORNET_CDM.DEMOGRAPHIC
+FinalsTable1;
+PCORNET_CDM.DEMOGRAPHIC
 
 Table produced:
-+NextD_DEMOGRAPHIC_FINAL
+NextD_DEMOGRAPHIC_FINAL
 
 ----------------------------------------------------------------------
 
 Script name: NextD_ExtractionCode_ENCOUNTER-2021-02-03.sql
 Execution order: 2.*
 Tables required: 
-+FinalTable1
-+PCORNET_CDM.ENCOUNTER
-+NEXT_OriginalNPIFROMBaseTaxonomy
+FinalTable1;
+PCORNET_CDM.ENCOUNTER;
+NEXT_OriginalNPIFROMBaseTaxonomy
 
 Table produced:
-+NextD_ENCOUNTER_FINAL
+NextD_ENCOUNTER_FINAL
 
 ----------------------------------------------------------------------
 
 Script name: NextD_ExtractionCode_PRESCRIBING-2021-02-03.sql
 Execution order: 2.*
 Tables required: 
-+FinalTable1
-+PCORNET_CDM.DEMOGRAPHIC
-+PCORNET_CDM.PRESCRIBING
-+PCORNET_CDM.ENCOUNTER
+FinalTable1;
+PCORNET_CDM.DEMOGRAPHIC;
+PCORNET_CDM.PRESCRIBING;
+PCORNET_CDM.ENCOUNTER
 
 Table produced:
-+NextD_PRESCRIBING_FINAL
+NextD_PRESCRIBING_FINAL
 
 ----------------------------------------------------------------------
 
 Script name: NextD_ExtractionCode_DISPENSING-2021-02-03.sql
 Execution order: 2.*
 Tables required: 
-+FinalTable1
-+PCORNET_CDM.DISPENSING
-+PCORNET_CDM.DEMOGRAPHIC
+FinalTable1;
+PCORNET_CDM.DISPENSING;
+PCORNET_CDM.DEMOGRAPHIC
 
 Table produced:
-+NextD_DISPENSING_FINAL
+NextD_DISPENSING_FINAL
 
 ----------------------------------------------------------------------
 
 Script name: NextD_ExtractionCode_VITAL-2021-02-03.sql
 Execution order: 2.*
 Tables required: 
-+FinalTable1
-+PCORNET_CDM.DEMOGRAPHIC
-+PCORNET_CDM.VITAL
+FinalTable1;
+PCORNET_CDM.DEMOGRAPHIC;
+PCORNET_CDM.VITAL
 
 Table produced:
-+NextD_VITAL_FINAL
+NextD_VITAL_FINAL
 
 ----------------------------------------------------------------------
 
 Script name: NextD_ExtractionCode_LABS_GPCsites-2021-02-03.sql
 Execution order: 2.*
 Tables required: 
-+FinalTable1
-+PCORNET_CDM.DEMOGRAPHIC
-+PCORNET_CDM.LAB_RESULT_CM
+FinalTable1;
+PCORNET_CDM.DEMOGRAPHIC;
+PCORNET_CDM.LAB_RESULT_CM
 
 Table produced:
-+NextD_LABS_FINAL
+NextD_LABS_FINAL
 
 ----------------------------------------------------------------------
 
 Script name: NextD_ExtractionCode_DIAGNOSIS-2021-02-03.sql
 Execution order: 2.*
 Tables required: 
-+FinalTable1
-+PCORNET_CDM.DEMOGRAPHIC
-+PCORNET_CDM.DIAGNOSIS
+FinalTable1;
+PCORNET_CDM.DEMOGRAPHIC;
+PCORNET_CDM.DIAGNOSIS
 
 Table produced:
-+NextD_DIAGNOSIS_FINAL
+NextD_DIAGNOSIS_FINAL
 
 ----------------------------------------------------------------------
 
 Script name: NextD_ExtractionCode_PROCEDURES-2021-02-03.sql
 Execution order: 2.*
 Tables required: 
-+FinalTable1
-+PCORNET_CDM.DEMOGRAPHIC
-+PCORNET_CDM.PROCEDURES;
+FinalTable1;
+PCORNET_CDM.DEMOGRAPHIC;
+PCORNET_CDM.PROCEDURES
 
 Table produced:
-+NextD_PROCEDURES_FINAL
+NextD_PROCEDURES_FINAL
 
 ----------------------------------------------------------------------
 
 Script name: NextD_ExtractionCode_PROVIDER-2021-02-03.sql
 Execution order: 2.*
 Tables required: 
-+NEXT_OriginalNPIFROMBaseTaxonomy
++NEXT_OriginalNPIFROMBaseTaxonomy;
 +PCORNET_CDM.PROVIDER
 
 Table produced:
@@ -135,32 +135,32 @@ Table produced:
 Script name: NextD_ExtractionCode_SES_2021-02-03.sql
 Execution order: 2.*
 Tables required: 
-+FinalTable1
-+Local table with information on geocoding accuracy, and GEOIIDs
+FinalTable1;
+Local table with information on geocoding accuracy, and GEOIIDs
 
 Table produced:
-+NextD_SES_FINAL
+NextD_SES_FINAL
 
 ----------------------------------------------------------------------
 
 Script name: NextD_ExtractionCode_DEATH_2021-02-03.sql
 Execution order: 2.*
 Tables required: 
-+FinalTable1
-++PCORNET_CDM.DEATH
+FinalTable1;
+PCORNET_CDM.DEATH
 
 Table produced:
-+NextD_DEATH_FINAL
+NextD_DEATH_FINAL
 
 ----------------------------------------------------------------------
 
 Script name: NextD_ExtractionCode_DEATH_2021-02-03.sql
 Execution order: 2.*
 Tables required: 
-+FinalTable1
-++PCORNET_CDM.DEATH_CAUSE
+FinalTable1;
+PCORNET_CDM.DEATH_CAUSE
 
 Table produced:
-+NextD_DEATH_CAUSE_FINAL
+NextD_DEATH_CAUSE_FINAL
 
 ----------------------------------------------------------------------
