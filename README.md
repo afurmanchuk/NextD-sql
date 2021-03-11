@@ -8,13 +8,11 @@ Execution plan:
 
 3. Save each output table as a separate pipeline delimited file. Use “ALONAENDALONA” as line terminator. 
     Produced files should then be archived
-    
-/*********************************************************************/
-/*********************************************************************/
+ ----------------------------------------------------------------------   
 
 Study period: 2010-01-01 - 2020-12-31 
 CDM version: >= v6.1, without date shifts
-/*********************************************************************/
+----------------------------------------------------------------------
 
 Script name: FinalTable1_2021-02-03.sql
 Execution order: 1
@@ -25,7 +23,7 @@ Tables required:
 Table produced:
 +FinalTable1;
 
-/*********************************************************************/
+----------------------------------------------------------------------
 
 Script name: NextD_ExtractionCode_DEMOGRAPHICS-2021-02-03.sql
 Execution order: 2.*
@@ -36,7 +34,7 @@ Tables required:
 Table produced:
 +NextD_DEMOGRAPHIC_FINAL
 
-/*********************************************************************/
+----------------------------------------------------------------------
 
 Script name: NextD_ExtractionCode_ENCOUNTER-2021-02-03.sql
 Execution order: 2.*
@@ -48,7 +46,7 @@ Tables required:
 Table produced:
 +NextD_ENCOUNTER_FINAL
 
-/*********************************************************************/
+----------------------------------------------------------------------
 
 Script name: NextD_ExtractionCode_PRESCRIBING-2021-02-03.sql
 Execution order: 2.*
@@ -61,7 +59,7 @@ Tables required:
 Table produced:
 +NextD_PRESCRIBING_FINAL
 
-/*********************************************************************/
+----------------------------------------------------------------------
 
 Script name: NextD_ExtractionCode_DISPENSING-2021-02-03.sql
 Execution order: 2.*
@@ -73,7 +71,7 @@ Tables required:
 Table produced:
 +NextD_DISPENSING_FINAL
 
-/*********************************************************************/
+----------------------------------------------------------------------
 
 Script name: NextD_ExtractionCode_VITAL-2021-02-03.sql
 Execution order: 2.*
@@ -85,7 +83,7 @@ Tables required:
 Table produced:
 +NextD_VITAL_FINAL
 
-/*********************************************************************/
+----------------------------------------------------------------------
 
 Script name: NextD_ExtractionCode_LABS_GPCsites-2021-02-03.sql
 Execution order: 2.*
@@ -97,7 +95,7 @@ Tables required:
 Table produced:
 +NextD_LABS_FINAL
 
-/*********************************************************************/
+----------------------------------------------------------------------
 
 Script name: NextD_ExtractionCode_DIAGNOSIS-2021-02-03.sql
 Execution order: 2.*
@@ -109,7 +107,7 @@ Tables required:
 Table produced:
 +NextD_DIAGNOSIS_FINAL
 
-/*********************************************************************/
+----------------------------------------------------------------------
 
 Script name: NextD_ExtractionCode_PROCEDURES-2021-02-03.sql
 Execution order: 2.*
@@ -121,7 +119,7 @@ Tables required:
 Table produced:
 +NextD_PROCEDURES_FINAL
 
-/*********************************************************************/
+----------------------------------------------------------------------
 
 Script name: NextD_ExtractionCode_PROVIDER-2021-02-03.sql
 Execution order: 2.*
@@ -132,7 +130,7 @@ Tables required:
 Table produced:
 +NextD_PROVIDER_FINAL
 
-/*********************************************************************/
+----------------------------------------------------------------------
 
 Script name: NextD_ExtractionCode_SES_2021-02-03.sql
 Execution order: 2.*
@@ -143,7 +141,7 @@ Tables required:
 Table produced:
 +NextD_SES_FINAL
 
-/*********************************************************************/
+----------------------------------------------------------------------
 
 Script name: NextD_ExtractionCode_DEATH_2021-02-03.sql
 Execution order: 2.*
@@ -154,7 +152,7 @@ Tables required:
 Table produced:
 +NextD_DEATH_FINAL
 
-/*********************************************************************/
+----------------------------------------------------------------------
 
 Script name: NextD_ExtractionCode_DEATH_2021-02-03.sql
 Execution order: 2.*
@@ -165,4 +163,4 @@ Tables required:
 Table produced:
 +NextD_DEATH_CAUSE_FINAL
 
-/*********************************************************************/
+----------------------------------------------------------------------
