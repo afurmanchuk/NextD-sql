@@ -28,8 +28,8 @@ select c.PATID,'|' as Pipe1,
 		b.DX_SOURCE,'|' as Pipe8,
 		b.DX_ORIGIN,'|' as Pipe9,
 		b.ENC_TYPE,'|' as Pipe10,
-		year(b.ADMIT_DATE) as ADMIT_DATE_YEAR,'|' as Pipe11,
-		month(b.ADMIT_DATE) as ADMIT_DATE_MONTH,'|' as Pipe12,
+		year(dateadd(dd,b.ADMIT_DATE,'1960-01-01')) as ADMIT_DATE_YEAR,'|' as Pipe11,
+		month(dateadd(dd,b.ADMIT_DATE,'1960-01-01')) as ADMIT_DATE_MONTH,'|' as Pipe12,
 		b.ADMIT_DATE - c.FirstVisit as DAYS_from_FirstEncounter_Date,'ENDALONAEND' as lineEND
 into #NextD_DIAGNOSIS_FINAL 
 from /* provide name of table 1 here: */ #FinalTable1 c 
