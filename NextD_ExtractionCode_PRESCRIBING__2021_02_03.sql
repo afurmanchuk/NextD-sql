@@ -34,7 +34,7 @@ select c.PATID,'|' as Pipe1,
 into #NextD_PRESCRIBING_FINAL
 from /* provide name of table 1 here: */ #FinalTable1 c 
 join dbo.[ENCOUNTER] a on c.PATID=a.PATID
-join  dbo.[PRESCRIBING] b on c.ENCOUNTERID=b.ENCOUNTERID 
+join  dbo.[PRESCRIBING] b on a.ENCOUNTERID=b.ENCOUNTERID 
 join  [dbo].[DEMOGRAPHIC] d on c.PATID=d.PATID
 where convert(numeric(18,6),(b.RX_ORDER_DATE-d.BIRTH_DATE))/365.25 between @LowerAge and @UpperAge 
 	and b.RX_ORDER_DATE between @LowerTimeFrame and @UpperTimeFrame;
