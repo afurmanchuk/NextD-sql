@@ -35,7 +35,7 @@ select c.PATID,'|' as Pipe,1
 		a.ADMIT_DATE - c.[FirstVisit] as DAYS_from_FirstEncounter_Date1,'|' as Pipe6,
 		year(dateadd(dd,a.DISCHARGE_DATE,'1960-01-01')) as DISCHARGE_DATE_YEAR,'|' as Pipe7,
 		month(dateadd(dd,a.DISCHARGE_DATE,'1960-01-01')) as DISCHARGE_DATE_MONTH,'|' as Pipe8,
-		a.ADMIT_DATE - c.[FirstVisit] as DAYS_from_FirstEncounter_Date2,'|' as Pipe9,
+		a.DISCHARGE - c.[FirstVisit] as DAYS_from_FirstEncounter_Date2,'|' as Pipe9,
 		a.ENC_TYPE,'|' as Pipe10,
 		a.FACILITYID,'|' as Pipe11,
 		a.FACILITY_TYPE,'|' as Pipe12,
